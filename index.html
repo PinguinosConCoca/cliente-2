@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maas-Ferretería y Tlapalería en Guadalajara y Zapopan | Herramientas, Materiales y Más</title>
+
+    <!-- Descripción corta optimizada para SEO local -->
+    <meta name="description" content="Maas-Ferretería, tu ferretería y tlapalería confiable en Guadalajara y Zapopan. Encuentra herramientas, materiales para construcción, pintura, plomería, electricidad y mucho más.">
+
+    <!-- Palabras clave relevantes -->
+    <meta name="keywords" content="ferretería en Guadalajara, ferretería en Zapopan, tlapalería, herramientas, materiales de construcción, pintura, plomería, electricidad, Maas-Ferretería">
+
+    <!-- Etiquetas Open Graph (para redes sociales y SEO adicional) -->
+    <meta property="og:title" content="Maas-Ferretería y Tlapalería en Guadalajara y Zapopan">
+    <meta property="og:description" content="Encuentra herramientas y materiales en Maas-Ferretería, la ferretería más completa de Guadalajara y Zapopan.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Ubicación específica usando geo-etiquetas -->
+    <meta name="geo.region" content="MX-JAL">
+    <meta name="geo.placename" content="Guadalajara">
+    <meta name="geo.position" content="20.6736;-103.344">
+    <meta name="ICBM" content="20.6736, -103.344">
+
+    <!-- Datos estructurados para negocios locales -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HardwareStore",
+      "name": "Maas-Ferretería",
+      "image": "https://tu-sitio.com/logo.jpg",
+      "@id": "",
+      "url": "https://tu-sitio.com/",
+      "telephone": "+52 33 0000 0000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle ejemplo #1234",
+        "addressLocality": "Zapopan",
+        "addressRegion": "Jalisco",
+        "postalCode": "45050",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 20.6736,
+        "longitude": -103.344
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/maasferreteria",
+        "https://www.instagram.com/maasferreteria"
+      ]
+    }
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            background-color: #111827;
+            color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+        }
+        /* efecto del mouse */
+        .mouse-effect {
+            position: fixed;
+            inset: 0;
+            pointer-events: none; /* No afecta la interacción */
+            z-index: -1; /* Se mueve detrás de todo */
+            transition: opacity 0.3s ease;
+            background: radial-gradient(900px at 50% 50%, rgba(216, 29, 78, 0.1), rgba(216, 29, 78, 0.05), transparent 90%);
+        }
+
+        /* configuración para el nav-bar */
+        .nav-custom {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(250, 250, 250, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 5px 10px;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(250, 250, 250, 0.3);
+        }
+        .nav-custom a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        .nav-custom a:hover {
+            background: rgba(250, 250, 250, 0.5);
+        }
+
+        /* hero seccion */
+        .section-full-hero {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url("/img/hero-background-2.jpg") 
+                no-repeat center bottom/cover;
+            position: relative;
+            background-attachment: fixed;
+        }
+        /* Fix para Safari iOS */
+        @supports (-webkit-touch-callout: none) {
+            .section-full-hero {
+                background-attachment: scroll !important;
+            }
+        }
+        
+        /* primera sección */
+        .section-full {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 3rem 1rem;
+            /* margin-top: 80px; */
+        }
+        .logo-hero {
+          width: 240px;      /* Más ancho */
+          height: auto;
+          margin-bottom: 1rem;
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
+          transition: transform 0.3s ease;
+        }
+
+        .logo-hero:hover {
+          transform: scale(1.02);
+        }
+        /* segunda sección */
+        .second-section {
+          background: linear-gradient(to bottom, white, white);
+          min-height: 100vh; /* Para que cubra toda la pantalla */
+          margin: 0;
+          padding: 0;
+            color: black;
+        }
+        /* fuerza la optimización de renderizado en móviles */
+        .ml12 .letter {
+          /* Fuerza la optimización de renderizado en móviles */
+          will-change: transform, opacity;
+          backface-visibility: hidden;
+        }
+        .text-change {
+          transition: opacity 0.5s ease;
+        }
+        .btn-custom {
+            background-color: #fff;
+            color: #000;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+          }
+
+          .btn-custom:hover {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+          }
+          .ml12 {
+            text-transform: uppercase;
+            letter-spacing: 0px;
+            font-family: Orbitron;
+          }
+          
+    </style>
+</head>
+<body>
+
+<!-- Efecto de Mouse solo en el primer section -->
+<div class="mouse-effect"></div>
+
+<!-- seccion navbar -->
+<nav class="nav-custom d-flex justify-content-center">
+      <a class="nav-link d-flex flex-column align-items-center" href="#productos">
+        <img style="max-width: 26px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACL0lEQVRIS9WWQUgVQRjH35OwS4a3IkoMPGR1KMpb6CMUJIQOepDonpYKHYtAS7wGCQblLRIpFckQ9GQilUclSEzQq0hFFNXBon7/x6wM++a9fbP74OEHP2Z39vu+/zezO7OTTpXJ0mXSTfkKX6TQNlPsR9oJ+Ben+GKFz5P8GZwNiXzmvgde+IoXI3yKpO+hOk9yjfgqvPYRjxLW8w9wxiR9SDsKX6AThqAKvsNJ+FqseJRwI4kWTbIHtP2hxFe4nzV9t2gfxxE+TFAfHLCCL3AdfEwjXOudhu0OHZWwAq9CD8e5X3cVY4/4Ng6aylLaFMk6ooQHHFOZtAi9psy+Et6g2pvwJ+bQv5l3nxNuv2PXVGu53IspWjAsSvg+0SpIdhzqEhSxS+w7yG6xPsJb+NcmEFboNdAS8xKO9TMIFbo3gz4jDoRV8VOTcIZWW6bLhumchoMwZxwSCY+R5LpJtECbySN8if63UA/6hcoSCW+T4BhoBpR8ySE8T1+r6bd3xETCytcFT0ziy7SDcA52YBL0M/kFh0B7wdFSjFg5fkIDrDlGG3RVcPES2i2fxCNWrh/QC8/hb6iA09w/guZQv1P4Lk7aqWyzN5B8y0mjX4ZVqAH9SnUocJlTuAnPNzGEC8x2ziOnsLy6QT/2EyakmBGXRLhQEi2jIz4qDt8b9GU3n6gzlx2rY5E+mLj2iUCtBB0MvYTlrwN9C2gb9LFNnHX4/x0E+YzYRyjSt2zC/wFconwfevdFIwAAAABJRU5ErkJggg==" alt="Services Icon">
+        <span class="fw-light small">Proveedores</span>
+      </a>
+      <a class="nav-link d-flex flex-column align-items-center" href="#ubicacion">
+        <img style="max-width: 26px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABxElEQVRIS9WWPyhFURzH30tikjIoBibFbFBKGUwkFqQkkxisBuIZZWGyGEiJDAZhY2K3ymLwJ7HKIj7fOqfuO+9d95z7rl5Offq9e+85v8/93XPPuS+fq1LLV8mbSyvWuDlz09vE79AC0og15gAmjOyQOBkqDxW7UltosDxErL57MGVsDya2mbhPnPat3FfsVvqIoNcIr4mtoY/dRxwnjVYcLE8SJ0ntHOtxB8l/E/tKU8njxKHSYHk5cVppkNwVVyr1lkfF5TaHNTIVQrdD01/jViNjizaZqHicTroYbVmKlXcMjvUjKh7i+PSPxYPkP3fFOu6AFrgyN5BVxf3ke4I7W1jccrKfOYmF7lSfwRPYiZnzWc4Pgz6TZ6D5tXNc4vERb5BA22MTvEMP3DvyTo5voBFeoR0WKxUXSLAAW0b2RlwCzVUdjMAKNJjrM8Rd0LiKKlaCGriEPqdS91CPWC+pWiZiJaqHTdBcuk3vxDosw1fWYivr4sco1JoTH8QjsJ9J2y+zihOecsnl/yV+4f6bQ0uM6f/MeW1KRS1uHUeXT6X+eRJoU/ESq1M3DIDWapr2yaALuC03OOk/Vxqh15iqiX8ARJJ9H2EPnScAAAAASUVORK5CYII=" alt="Home Icon">
+        <span class="fw-light small">Ubicaciones</span>
+      </a>
+      <a class="nav-link d-flex flex-column align-items-center" href="#promo">
+        <img style="max-width: 26px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACo0lEQVRIS8WWSaiOURjH7y1TKcNa2ckQKWMoNmRKKEOSiIgVpVwsbGQoMmwQNoZISUiGJMqcKMOC3bW0EElkKH6/23n13dP7vee8Nt9T/857zjP8z3uec55z2ttaJO0t4m2rSzydiQ4AF6MJL6LfE5zP/ZE6xFMJeg/o8wx0gN5gJxgXCLW5n0OeS9yDYG/A0ETQd+hHgV8p8mbEfXHcCHqFACNoF6eCBf0F2rfh+yftIfAt9m1GvAHDI5lEKbN1GJzIJd6G4e5UxEz9duz25BJvLTNm7D0YCPplkmrmT+zNIfZYnALLIuPN9A+APsDjNLdBr737YHzJhM4xtgp023BxjqdgcBIMKwkg4Y8wvpD2Uvh+TjsJGOs4WFni62ZbDR4XukbieQxeLXEqhlbwcTZ0bJeDL2A06AQeuQdgYkWM2ehuqq9D/Ad7l3QIcGUU//xy+N5PazqqZA7KGzGx/YdgcsK5UB/mY1PozCoCVvi6zP9ixzkeg9KcpeQlBm4kN8wgYFWzhlfJWJQvCoOYeAKKp4kAX9FbFjuBeXWV9EuJNtb4LomJHzHmDq2SBSivBIODtMVyp4iNXeyNbsSey2sJ78a8FvZuutvgA7Cee+yaiXvhVvzH6xk4WuFk7t0cFv7BwDybV6/FHcEvdSSd7PWY2H5VATmNfk0gaMzrfMaK8+9EPpVM3gKir8vdJWW3kyXzDFhaEsDN8aphApo8ATOBm+4YWBv5+SqxmlWWzMKn7u1kBfsMTEEs2ZeEjl5lu0qC/M9QrWuxZQ8Bnz6eT/OtDAdLMn+38enjbebT53vsm/vYcwKvQc5jbyR2v1OTzCU2zjRwFxTP2y0h+D5an7cWEp+3Xo1JqUNssBmgP4gf9KbhI7iTZAwGdYlz4ybtWkb8F6eGdh8WNiwnAAAAAElFTkSuQmCC" alt="Promo Icon">
+        <span class="fw-light small">Promo</span>
+      </a>
+      <a class="nav-link d-flex flex-column align-items-center" href="#contacto">
+        <img style="max-width: 26px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACv0lEQVRIS9WWW4hPQRzHd93KpcUDyeWNdl2KcokSS0SIknsSTyi3RBGlFClECHlQQu4ePBAPWkSuRe6XIrW1L0IetA8un2/9jmanmTnnv/7aTH2aM7/5/eY7c87M/E5lRQuVyhbSrSiH8Hwm3xY+wAP4XmQx5RC+gdAYE/tp4nuoz6QmkBLeQOA2OALLE4O4wq7bHRrT4VMoNiTcDscTMNsJ2MLz1oh4e+x9YYjFTKVuZb5vqcdBvR/rC3fE4TqMCIho1YcLfD9NYj9MNt9X1KPgixvrC8tBryhW5tBxzutcTLs3XIQX1qdxd8Faa1+inpESHk3nrYTwD/qmwDXHp47nsda+Sr0JHln7AvVMex5O/TCL81c8iI6nCWF1NcJQeG5+rrBMv2Ak3Ide8B503E7CwphwFzo+5wirexXoO6poc/WHFbDEbFrxMHs+Rr0ItLu72cSCF8hHOvskxB/Tp3P7LeCzF9tqsw+k1jdfYKuVWTv/iR5Cx+kU9nkRYX2jidBkhzq+Wnm2wbTK41ADL81HR/R8TNidoat/z0RDK8389NqvWOMg9VnoAJfNdiAlXEVnA2gQt1TTeBN5EyWbY1emLoql3mjraO8uWSESEBMegL+OVXb1Kfwr6HvpbYRKd4zLoA5u5k0wlSSUYdZ4AzyjXQv+xd8V223Q5tIlo/N6OiWeEu5E4Gvo6Q0g2zR4Z3bd71pldm4zd30qZbZgycvHg4nS3a2d6Rbl3aOwHQ7BpMj4G7HvCPXlCStGq9MlX8Q3pKEjtNLvKDrYXAKVo9vEXl2OXZlqvetTVFgxurGUEjs3Q1wnQnngTylFWEE9YB+4fydF5rEZJ/1GNVs4C1Te3glKf3lFOXmW71Tqiv34fhgmgH4OxoO/++9iqwXl8Cblb4XdwVrT0H2uGywrysvBpFJO4bxX/s9W/H8I/wbae3AftPmoIgAAAABJRU5ErkJggg==" alt="Contact Icon">
+        <span class="fw-light small">Contacto</span>
+      </a>
+</nav>
+<script>
+  function getLuminance(color) {
+    const match = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    if (match) {
+      const r = parseInt(match[1], 10);
+      const g = parseInt(match[2], 10);
+      const b = parseInt(match[3], 10);
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    }
+    return 255;
+  }
+
+  function adjustNavbarColors() {
+    const navbar = document.querySelector('.nav-custom');
+    if (!navbar) return;
+
+    const bgColor = window.getComputedStyle(navbar).backgroundColor;
+    const luminance = getLuminance(bgColor);
+    const isDark = luminance < 128;
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const span = link.querySelector('span');
+      if (span) {
+        span.style.color = isDark ? 'white' : 'black';
+      }
+
+      const img = link.querySelector('img');
+      if (img) {
+        img.style.filter = isDark ? 'invert(1)' : 'invert(0)';
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', adjustNavbarColors);
+  window.addEventListener('resize', adjustNavbarColors);
+</script>
+
+<!-- Sección Hero -->
+<section class="section-full-hero container-fluid">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center h-100">
+      <div class="text-center mb-0">
+        <img src="/img/logo-free.png" alt="Logo Ferreterías-Maas" class="img-fluid logo-hero">
+      </div>
+      <h1 class="display-3 fw-bold text-white ml12">Bienvenido a Ferreterías-Maas</h1>
+      <p class="lead mt-4 text-white px-4 py-2 rounded-pill bg-light bg-opacity-10 backdrop-blur">
+        La mejor opción en ferretería y tlapalería en Guadalajara y Zapopan.
+      </p>    
+      <a href="https://wa.me/5213338449486?text=Hola,%20me%20interesa%20su%20producto%20y%20me%20gustaría%20obtener%20más%20información."
+          target="_blank"
+        class="btn btn-custom btn-lg mt-4 mb-5 shadow">
+        <i class="bx bxl-whatsapp me-2"></i> Mandar Whatsapp
+      </a>
+    </div>
+</section>
+<script>
+  var textWrapper = document.querySelector('.ml12');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: true})
+  .add({
+      targets: '.ml12 .letter',
+      translateX: [40,0],
+      translateZ: 0,
+      opacity: [0,1],
+      easing: "easeOutExpo",
+      duration: 1100,
+      delay: (el, i) => 500 + 30 * i
+  }).add({
+      targets: '.ml12 .letter',
+      translateX: [0,-30],
+      translateZ: 0,
+      opacity: [1,0],
+      easing: "easeInExpo",
+      duration: 1100,
+      delay: (el, i) => 100 + 30 * i
+  });       
+  ScrollReveal({reset: true}).reveal('.btn-1', {delay: 150}); 
+  ScrollReveal({reset: true}).reveal('.btn-2', {delay: 450}); 
+</script>
+
+<!-- Sección de Proveedores -->
+<div id="productos" class="section-full second-section">
+  <div class="container text-center">
+      <h1 class="text-dark fw-semibold display-3">Nuestros principales proveedores de confianza</h1>
+      <p class="text-muted">Trabajamos con marcas reconocidas para garantizar calidad y excelencia en cada producto.</p>
+  </div>
+  <div class="logo-slider">
+      <div class="logo-track">
+          <!-- Logos del 1 al 20 (repetidos varias veces para efecto de loop infinito) -->
+          <img src="img/provedores/1.jpeg" alt="Proveedor 1">
+          <img src="img/provedores/2.jpeg" alt="Proveedor 2">
+          <img src="img/provedores/3.jpeg" alt="Proveedor 3">
+          <img src="img/provedores/4.jpeg" alt="Proveedor 4">
+          <img src="img/provedores/5.jpeg" alt="Proveedor 5">
+          <img src="img/provedores/6.jpeg" alt="Proveedor 6">
+          <img src="img/provedores/7.jpeg" alt="Proveedor 7">
+          <img src="img/provedores/8.jpeg" alt="Proveedor 8">
+          <img src="img/provedores/9.jpeg" alt="Proveedor 9">
+          <img src="img/provedores/10.jpeg" alt="Proveedor 10">
+          <img src="img/provedores/11.jpeg" alt="Proveedor 11">
+          <img src="img/provedores/12.jpeg" alt="Proveedor 12">
+          <img src="img/provedores/13.jpeg" alt="Proveedor 13">
+          <img src="img/provedores/14.jpeg" alt="Proveedor 14">
+          <img src="img/provedores/15.jpeg" alt="Proveedor 15">
+          <img src="img/provedores/16.jpeg" alt="Proveedor 16">
+          <img src="img/provedores/17.jpeg" alt="Proveedor 17">
+          <img src="img/provedores/18.jpeg" alt="Proveedor 18">
+          <img src="img/provedores/19.jpeg" alt="Proveedor 19">
+          <img src="img/provedores/20.jpeg" alt="Proveedor 20">
+
+          <!-- Repetición para loop -->
+          <img src="img/provedores/1.jpeg" alt="Proveedor 1">
+          <img src="img/provedores/2.jpeg" alt="Proveedor 2">
+          <img src="img/provedores/3.jpeg" alt="Proveedor 3">
+          <img src="img/provedores/4.jpeg" alt="Proveedor 4">
+          <img src="img/provedores/5.jpeg" alt="Proveedor 5">
+          <img src="img/provedores/6.jpeg" alt="Proveedor 6">
+          <img src="img/provedores/7.jpeg" alt="Proveedor 7">
+          <img src="img/provedores/8.jpeg" alt="Proveedor 8">
+          <img src="img/provedores/9.jpeg" alt="Proveedor 9">
+          <img src="img/provedores/10.jpeg" alt="Proveedor 10">
+          <img src="img/provedores/11.jpeg" alt="Proveedor 11">
+          <img src="img/provedores/12.jpeg" alt="Proveedor 12">
+          <img src="img/provedores/13.jpeg" alt="Proveedor 13">
+          <img src="img/provedores/14.jpeg" alt="Proveedor 14">
+          <img src="img/provedores/15.jpeg" alt="Proveedor 15">
+          <img src="img/provedores/16.jpeg" alt="Proveedor 16">
+          <img src="img/provedores/17.jpeg" alt="Proveedor 17">
+          <img src="img/provedores/18.jpeg" alt="Proveedor 18">
+          <img src="img/provedores/19.jpeg" alt="Proveedor 19">
+          <img src="img/provedores/20.jpeg" alt="Proveedor 20">
+      </div>
+  </div>
+</div>
+<style>
+  .logo-slider {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      width: 100%;
+      background: white;
+      padding: 20px 0;
+  }
+
+  .logo-track {
+      display: flex;
+      gap: 40px;
+      animation: scroll 10s linear infinite;
+      width: calc(200px * 20); /* Ajustado al número de logos */
+  }
+
+  .logo-track img {
+      max-width: 150px;
+      height: auto;
+      object-fit: contain;
+  }
+
+  @keyframes scroll {
+      from {
+          transform: translateX(0);
+      }
+      to {
+          transform: translateX(-50%);
+      }
+  }
+
+  @media (max-width: 768px) {
+      .logo-track img {
+          max-width: 100px;
+      }
+  }
+</style>
+
+
+<!-- seccion mapas -->
+<section id="ubicacion" class="section-full py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center text-lg-start">
+        <h2 class="fw-bold text-danger ml12"><box-icon name='map-pin' type='solid' color='#dc3545'></box-icon> Nuestras Sucursales</h2>
+        <p class="lead">Encuéntranos en cualquiera de nuestras 4 ubicaciones.</p>
+        <p class="fw-bold fs-4">Selecciona una sucursal para ver su ubicación:</p>
+
+        <!-- Horarios sin fondo blanco -->
+        <h5 class="fw-bold text-danger mt-4 ml12"><box-icon name='time-five' color='#dc3545'></box-icon> Horarios:</h5>
+        <ul class="list-unstyled">
+          <li><box-icon name='calendar' color='#115e59'></box-icon> Lunes a Viernes: <span class="fw-bold" style="color: #ffc300;">8:30 AM - 7:00 PM</span></li>
+          <li><box-icon name='calendar-alt' color='#115e59'></box-icon> Sábado: <span class="fw-bold" style="color: #ffc300;">8:30 AM - 6:00 PM</span></li>
+          <li><box-icon name='calendar-event' color='#115e59'></box-icon> Domingo: <span class="fw-bold" style="color: #ffc300;">10:00 AM - 2:00 PM</span></li>
+        </ul>
+
+        <!-- Botones de selección de sucursal -->
+        <div class="d-grid gap-2 mt-4">
+          <button class="btn btn-warning rounded-5 btn-lg branch-btn" data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14935.03477224468!2d-103.43951508927472!3d20.638690395905304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae831653d589%3A0xd8d4c9ea3d3133e6!2sFERRETERIAS%20MAAS%20SA%20DE%20CV!5e0!3m2!1sen!2smx!4v1742354272342!5m2!1sen!2smx">
+            <box-icon name='map' type='solid' color='#ffc300'></box-icon> FERRETERIAS MAAS PASEOS DEL SOL (Matriz)
+          </button>
+          <button class="btn btn-outline-danger rounded-5 btn-lg branch-btn" data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14934.609989104747!2d-103.44002248927286!3d20.643016595852995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ac166aaa32b7%3A0x932c175b8b454c59!2sFERRETERIAS%20MAAS%20COLLI!5e0!3m2!1sen!2smx!4v1742354174617!5m2!1sen!2smx">
+            <box-icon name='map' type='solid' color='#dc3545'></box-icon> FERRETERIAS MAAS COLLI
+          </button>
+          <button class="btn btn-outline-danger rounded-5 btn-lg branch-btn" data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14932.536902740103!2d-103.42555388926391!3d20.664117495597967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae831653d589%3A0x3ef35ad5ca24a6f9!2sFerreterias%20Maas%20Sa%20De%20Cv.%20Suc.Av.%20Guadalupe!5e0!3m2!1sen!2smx!4v1742354118739!5m2!1sen!2smx">
+            <box-icon name='map' type='solid' color='#dc3545'></box-icon> FERRETERIAS MAAS GUADALUPE
+          </button>
+          <button class="btn btn-outline-danger rounded-5 btn-lg branch-btn" data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.180789120877!2d-103.3957308247099!3d20.621486480927874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ada5ff21634d%3A0x2adcaf750b569f72!2sFerreterias%20Suc%20Maas.%20Sauz!5e0!3m2!1sen!2smx!4v1742353771276!5m2!1sen!2smx">
+            <box-icon name='map' type='solid' color='#dc3545'></box-icon> FERRETERIAS MAAS EL SAUZ
+          </button>
+        </div>
+      </div>
+
+      <!-- Columna del Mapa -->
+      <div class="col-lg-6 mt-4">
+        <div class="map-container shadow-lg rounded-4 overflow-hidden border border-2">
+          <iframe id="branchMap"
+            width="100%"
+            height="400px"
+            style="border:0; min-height: 300px;"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14935.03477224468!2d-103.43951508927472!3d20.638690395905304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae831653d589%3A0xd8d4c9ea3d3133e6!2sFERRETERIAS%20MAAS%20SA%20DE%20CV!5e0!3m2!1sen!2smx!4v1742354272342!5m2!1sen!2smx">
+          </iframe>
+        </div>
+      </div>            
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll(".branch-btn").forEach(button => {
+    button.addEventListener("click", function() {
+      document.getElementById("branchMap").src = this.dataset.map;
+    });
+  });
+</script>
+<style>
+  #ubicacion {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, #111827), url('img/hero-background-3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Opcional: oscurecer el fondo para que el texto resalte */
+  #ubicacion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Ajusta opacidad si quieres más oscuro o más claro */
+    z-index: -1;
+  }
+</style>
+
+<!-- seccion promo -->
+<section id="promo" class="section-full py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Columna de Texto -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <p class="text-uppercase fw-bold mb-2 text-danger ml12" style="font-size: 2.5rem; letter-spacing: .1rem;">
+          <box-icon name='star' type='solid' color='#dc3545'></box-icon> Promociones Especiales
+        </p>
+        <h2 class="fw-bold display-3 text-white">
+          <box-icon name='discount' type='solid' color='#ffc300'></box-icon> Descuentos en Ferretería
+        </h2>
+        <p class="lead text-warning" style="font-size: 1.25rem;">
+          Encuentra descuentos exclusivos en 
+          <span id="randomWord" class="text-danger text-change">herramientas</span> y más.
+        </p>
+      </div>
+
+      <!-- Columna de Botones -->
+      <div class="col-md-6 d-flex flex-column align-items-start">
+        <a href="img/ofertas.png" target="_blank"
+           class="btn btn-info mb-2 w-100 btn-lg shadow rounded-5 d-flex align-items-center justify-content-center">
+          <box-icon name='cart' type='solid' color='#fff'></box-icon> <span class="ms-2">Ver Ofertas</span>
+        </a>
+        <a href="tel:+5213338449486" 
+           class="btn btn-outline-success w-100 btn-lg shadow rounded-5 d-flex align-items-center justify-content-center">
+          <box-icon name='whatsapp' type='logo' color='#28a745'></box-icon> <span class="ms-2">Cotizar Productos</span>
+        </a>
+      </div>      
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const words = ["herramientas", "tornillos", "pinturas", "cemento", "plomería", "eléctricos", "cerrajería", "soldadura"];
+    let index = 0;
+    const randomWord = document.getElementById("randomWord");
+
+    setInterval(() => {
+      randomWord.style.transition = "opacity 0.5s";
+      randomWord.style.opacity = 0;
+      setTimeout(() => {
+        randomWord.textContent = words[index];
+        randomWord.style.opacity = 1;
+        index = (index + 1) % words.length;
+      }, 500);
+    }, 2000);
+  });
+</script>
+
+<!-- Sección Contacto -->
+<section id="contacto" class="section-full py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 text-center mb-5">
+        <p class="text-uppercase fw-bold mb-2 text-danger ml12" style="font-size: 2.5rem; letter-spacing: .1rem;">
+          <box-icon name='phone-call' type='solid' color='#dc3545'></box-icon> Contacto
+        </p>
+        <h2 class="fw-bold display-3 text-white">¿Necesitas Ayuda?</h2>
+        <p class="lead text-warning" style="font-size: 1.25rem;">
+          Llámanos o visítanos en cualquiera de nuestras sucursales.
+        </p>
+      </div>
+
+      <!-- Tarjetas de sucursales -->
+      <div class="col-12 d-flex justify-content-center flex-wrap gap-4">
+        
+        <!-- Sucursal 1 -->
+        <div class="card shadow-lg rounded-5 p-4 text-center" style="width: 300px; cursor: pointer; transition: transform 0.3s ease-in-out; background-image: url('img/red.jpg'); background-size: cover; background-position: left;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="d-flex flex-column align-items-center mb-3">
+            <box-icon name='home' type='solid' color='#dc3545' style="font-size: 1rem;"></box-icon>
+            <h4 class="fw-bold text-danger mt-2">Paseos del Sol</h4>
+          </div>
+          <p class="text-white">Av. Enrique Ladrón de Guevara 1585, Paseos del Sol, 45079 Zapopan, Jal.</p>
+          <button class="btn btn-danger rounded-5 mt-2" data-bs-toggle="collapse" data-bs-target="#infoSucursal1">
+            <div class="d-flex align-items-center justify-content-center">
+              <box-icon name='info-circle' type='solid' color='#fff' style="font-size: 1rem;"></box-icon>
+              <span class="ms-2" style="font-size: 1rem;">Más Información</span>
+            </div>
+          </button>
+          <div class="collapse mt-3" id="infoSucursal1">
+            <p class="text-white">Teléfono: <span class="fw-bold">33 3632 0571</span></p>
+            <a href="tel:+523336320571" class="btn btn-success rounded-5 w-100">
+              <div class="d-flex align-items-center justify-content-center">
+                <box-icon name='phone' type='solid' color='#28a745' style="font-size: 1rem;"></box-icon>
+                <span class="ms-2" style="font-size: 1rem;">Llamar</span>
+              </div>
+            </a>            
+          </div>
+        </div>
+
+        <!-- Sucursal 2 -->
+        <div class="card shadow-lg rounded-5 p-4 text-center" style="width: 300px; cursor: pointer; transition: transform 0.3s ease-in-out; background-image: url('img/yellow.jpg'); background-size: cover; background-position: left;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="d-flex flex-column align-items-center mb-3">
+            <box-icon name='home' type='solid' color='#a08630' style="font-size: 1rem;"></box-icon>
+            <h4 class="fw-bold mt-2" style="color: #fff;">Colli</h4>
+          </div>
+          <p class="text-white">Av. Volcán del Colli 2400, Colli Urbano, 45080 Zapopan, Jal.</p>
+          <button class="btn btn-warning rounded-5 mt-2" data-bs-toggle="collapse" data-bs-target="#infoSucursal2">
+            <div class="d-flex align-items-center justify-content-center">
+              <box-icon name='info-circle' type='solid' color='#fff' style="font-size: 1rem;"></box-icon>
+              <span class="ms-2 text-white" style="font-size: 1rem;">Más Información</span>
+            </div>
+          </button>
+          <div class="collapse mt-3" id="infoSucursal2">
+            <p class="text-white">Teléfono: <span class="fw-bold">33 3125 2110</span></p>
+            <a href="tel:+523331252110" class="btn btn-success rounded-5 w-100">
+              <div class="d-flex align-items-center justify-content-center">
+                <box-icon name='phone' type='solid' color='#28a745' style="font-size: 1rem;"></box-icon>
+                <span class="ms-2" style="font-size: 1rem;">Llamar</span>
+              </div>
+            </a>            
+          </div>
+        </div>
+
+        <!-- Sucursal 3 -->
+        <div class="card shadow-lg rounded-5 p-4 text-center" style="width: 300px; cursor: pointer; transition: transform 0.3s ease-in-out; background-image: url('img/green.jpg'); background-size: cover; background-position: bottom;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="d-flex flex-column align-items-center mb-3">
+            <box-icon name='home' type='solid' color='#28a745' style="font-size: 1rem;"></box-icon>
+            <h4 class="fw-bold mt-2" style="color: #3da35d;">Guadalupe</h4>
+          </div>
+          <p class="text-white">Av Guadalupe 4308 A, Camino Real, 45040 Zapopan, Jal.</p>
+          <button class="btn btn-success rounded-5 mt-2" data-bs-toggle="collapse" data-bs-target="#infoSucursal3">
+            <div class="d-flex align-items-center justify-content-center">
+              <box-icon name='info-circle' type='solid' color='#fff' style="font-size: 1rem;"></box-icon>
+              <span class="ms-2" style="font-size: 1rem;">Más Información</span>
+            </div>
+          </button>
+          <div class="collapse mt-3" id="infoSucursal3">
+            <p class="text-success">Teléfono: <span class="fw-bold">33 3144 1111</span></p>
+            <a href="tel:+523331441111" class="btn btn-success rounded-5 w-100">
+              <div class="d-flex align-items-center justify-content-center">
+                <box-icon name='phone' type='solid' color='#28a745' style="font-size: 1rem;"></box-icon>
+                <span class="ms-2" style="font-size: 1rem;">Llamar</span>
+              </div>
+            </a>            
+          </div>
+        </div>
+
+        <!-- Sucursal 4 -->
+        <div class="card shadow-lg rounded-5 p-4 text-center" style="width: 300px; cursor: pointer; transition: transform 0.3s ease-in-out; background-image: url('img/blue.jpg'); background-size: cover; background-position: center;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="d-flex flex-column align-items-center mb-3">
+            <box-icon name='home' type='solid' color='#00b4d8' style="font-size: 1rem;"></box-icon>
+            <h4 class="fw-bold text-info mt-2">El Sauz</h4>
+          </div>
+          <p class="text-white">C. Isla Zanzibar 4357-5, El Sauz, 45080 San Pedro Tlaquepaque, Jal.</p>
+          <button class="btn btn-primary rounded-5 mt-2" data-bs-toggle="collapse" data-bs-target="#infoSucursal4">
+            <div class="d-flex align-items-center justify-content-center">
+              <box-icon name='info-circle' type='solid' color='#fff' style="font-size: 1rem;"></box-icon>
+              <span class="ms-2" style="font-size: 1rem;">Más Información</span>
+            </div>
+          </button>
+          <div class="collapse mt-3" id="infoSucursal4">
+            <p class="text-primary">Teléfono: <span class="fw-bold">33 3663 2537</span></p>
+            <a href="tel:+523336632537" class="btn btn-success rounded-5 w-100">
+              <div class="d-flex align-items-center justify-content-center">
+                <box-icon name='phone' type='solid' color='#28a745' style="font-size: 1rem;"></box-icon>
+                <span class="ms-2" style="font-size: 1rem;">Llamar</span>
+              </div>
+            </a>            
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- búzon de quejas -->
+<section class="section-full py-5" id="buzon">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-5">
+            <h2 class="fw-bold text-center text-danger mb-4 ml12">📝 Buzón de Quejas y Sugerencias</h2>
+            <p class="text-center text-muted">Déjanos tus comentarios. Queremos mejorar tu experiencia.</p>
+
+            <!-- Incrustar Google Form -->
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden border border-2 shadow-sm">
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScPFffz-ka0IxhsL8feN8NAQxDFPbmE9Q9cZuohQAEMHlw_2A/viewform?embedded=true" 
+                      width="640" 
+                      height="800" 
+                      frameborder="0" 
+                      marginheight="0" 
+                      marginwidth="0">Cargando…</iframe>
+            </div>
+
+            <!-- Opción alternativa por correo -->
+            <div class="mt-5 text-center">
+              <p class="text-muted mb-2">¿Prefieres enviarlo por correo? También puedes escribirnos directamente.</p>
+              <p class="text-muted small">
+                Incluye una breve descripción de la situación, fecha del suceso, sucursal y tu nombre (opcional).
+              </p>
+              <a href="mailto:quejas.sugerencias@empresa.com?subject=Queja%20o%20Sugerencia%20-%20Mejora%20Continua"
+                 class="btn btn-outline-danger btn-lg fw-bold px-5 py-3 shadow-sm hover-pop">
+                ✉️ Enviar por Correo
+              </a>
+            </div>
+
+            <!-- Botón para abrir Google Forms en nueva pestaña -->
+            <div class="text-center mt-4">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScPFffz-ka0IxhsL8feN8NAQxDFPbmE9Q9cZuohQAEMHlw_2A/viewform" 
+                 target="_blank" 
+                 class="btn btn-danger btn-lg fw-bold px-5 py-3 shadow-sm hover-pop">
+                🚀 Abrir en Google Forms
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Degradado de fondo para el buzón */
+  #buzon {
+    background: linear-gradient(to bottom, #111827, #ffffff);
+  }
+
+  .hover-pop {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hover-pop:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Responsividad extra para iframe en móviles */
+  @media (max-width: 768px) {
+    iframe {
+      height: 500px;
+    }
+  }
+</style>
+
+
+
+<!-- footer -->
+<footer class="bg-white text-dark py-5 p-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo y descripción -->
+      <div class="col-md-4 mb-4 mt-5">
+        <img src="img/logo.png" alt="Reform" class="mb-3" style="max-width: 150px;">
+        <p class="text-muted small">Ferreterías-Maas, tu opción confiable en herramientas, construcción y más en Guadalajara y Zapopan.</p>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div class="col-md-2 mb-4 mt-5">
+        <h5 class="ml12 fw-bold mb-3">Navegación</h5>
+        <ul class="list-unstyled">
+          <li><a href="#productos" class="text-muted text-decoration-none">Proveedores</a></li>
+          <li><a href="#ubicacion" class="text-muted text-decoration-none">Ubicaciones</a></li>
+          <li><a href="#promo" class="text-muted text-decoration-none">Promociones</a></li>
+          <li><a href="#contacto" class="text-muted text-decoration-none">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Información de contacto -->
+      <div class="col-md-3 mb-4 mt-5">
+        <h5 class="ml12 fw-bold mb-3">Contacto</h5>
+        <ul class="list-unstyled text-muted small">
+          <li>📍 Guadalajara & Zapopan, Jalisco</li>
+          <li>📞 33 3844 9486</li>
+          <li>✉️ contacto@ferreteriasmaas.mx</li>
+          <li><a href="https://wa.me/5213338449486" target="_blank" class="text-decoration-none text-success fw-bold">Mandar Whatsapp</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="col-md-3 mb-4 mt-5">
+        <h5 class="ml12 fw-bold mb-3">Síguenos</h5>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-muted"><i class="bx bxl-facebook-circle fs-3"></i></a>
+          <a href="#" class="text-muted"><i class="bx bxl-instagram fs-3"></i></a>
+          <a href="#" class="text-muted"><i class="bx bxl-tiktok fs-3"></i></a>
+          <a href="#" class="text-muted"><i class="bx bxl-youtube fs-3"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Derechos -->
+    <div class="text-center text-muted small mt-3">
+      © 2025 Ferreterías-Maas. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+
+<!-- Script para el efecto de luz solo en el primer section -->
+<script>
+document.addEventListener("mousemove", function(event) {
+    const effect = document.querySelector(".mouse-effect");
+
+    // Detecta si el cursor está sobre la sección que deseas excluir
+    const excludedSection = document.querySelector(".second-section");
+    const rect = excludedSection.getBoundingClientRect();
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    const isInExcludedSection = (
+        mouseX >= rect.left &&
+        mouseX <= rect.right &&
+        mouseY >= rect.top &&
+        mouseY <= rect.bottom
+    );
+
+    if (!isInExcludedSection) {
+        effect.style.background = `radial-gradient(600px at ${mouseX}px ${mouseY}px, rgba(216, 29, 78, 0.1), rgba(216, 29, 78, 0.02), transparent 99%)`;
+    } else {
+        effect.style.background = "none";
+    }
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
