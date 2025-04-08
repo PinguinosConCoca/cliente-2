@@ -313,95 +313,88 @@
 <!-- Sección de Proveedores -->
 <div id="productos" class="section-full second-section">
   <div class="container text-center">
-      <h1 class="text-dark fw-semibold display-3">Nuestros principales proveedores de confianza</h1>
-      <p class="text-muted">Trabajamos con marcas reconocidas para garantizar calidad y excelencia en cada producto.</p>
+    <h1 class="text-dark fw-semibold display-3">Nuestros principales proveedores de confianza</h1>
+    <p class="text-muted">Trabajamos con marcas reconocidas para garantizar calidad y excelencia en cada producto.</p>
   </div>
-  <div class="logo-slider">
-      <div class="logo-track">
-          <!-- Logos del 1 al 20 (repetidos varias veces para efecto de loop infinito) -->
-          <img src="img/provedores/1.jpeg" alt="Proveedor 1">
-          <img src="img/provedores/2.jpeg" alt="Proveedor 2">
-          <img src="img/provedores/3.jpeg" alt="Proveedor 3">
-          <img src="img/provedores/4.jpeg" alt="Proveedor 4">
-          <img src="img/provedores/5.jpeg" alt="Proveedor 5">
-          <img src="img/provedores/6.jpeg" alt="Proveedor 6">
-          <img src="img/provedores/7.jpeg" alt="Proveedor 7">
-          <img src="img/provedores/8.jpeg" alt="Proveedor 8">
-          <img src="img/provedores/9.jpeg" alt="Proveedor 9">
-          <img src="img/provedores/10.jpeg" alt="Proveedor 10">
-          <img src="img/provedores/11.jpeg" alt="Proveedor 11">
-          <img src="img/provedores/12.jpeg" alt="Proveedor 12">
-          <img src="img/provedores/13.jpeg" alt="Proveedor 13">
-          <img src="img/provedores/14.jpeg" alt="Proveedor 14">
-          <img src="img/provedores/15.jpeg" alt="Proveedor 15">
-          <img src="img/provedores/16.jpeg" alt="Proveedor 16">
-          <img src="img/provedores/17.jpeg" alt="Proveedor 17">
-          <img src="img/provedores/18.jpeg" alt="Proveedor 18">
-          <img src="img/provedores/19.jpeg" alt="Proveedor 19">
-          <img src="img/provedores/20.jpeg" alt="Proveedor 20">
 
-          <!-- Repetición para loop -->
-          <img src="img/provedores/1.jpeg" alt="Proveedor 1">
-          <img src="img/provedores/2.jpeg" alt="Proveedor 2">
-          <img src="img/provedores/3.jpeg" alt="Proveedor 3">
-          <img src="img/provedores/4.jpeg" alt="Proveedor 4">
-          <img src="img/provedores/5.jpeg" alt="Proveedor 5">
-          <img src="img/provedores/6.jpeg" alt="Proveedor 6">
-          <img src="img/provedores/7.jpeg" alt="Proveedor 7">
-          <img src="img/provedores/8.jpeg" alt="Proveedor 8">
-          <img src="img/provedores/9.jpeg" alt="Proveedor 9">
-          <img src="img/provedores/10.jpeg" alt="Proveedor 10">
-          <img src="img/provedores/11.jpeg" alt="Proveedor 11">
-          <img src="img/provedores/12.jpeg" alt="Proveedor 12">
-          <img src="img/provedores/13.jpeg" alt="Proveedor 13">
-          <img src="img/provedores/14.jpeg" alt="Proveedor 14">
-          <img src="img/provedores/15.jpeg" alt="Proveedor 15">
-          <img src="img/provedores/16.jpeg" alt="Proveedor 16">
-          <img src="img/provedores/17.jpeg" alt="Proveedor 17">
-          <img src="img/provedores/18.jpeg" alt="Proveedor 18">
-          <img src="img/provedores/19.jpeg" alt="Proveedor 19">
-          <img src="img/provedores/20.jpeg" alt="Proveedor 20">
-      </div>
+  <div class="logo-slider">
+    <div class="logo-track" id="logo-track">
+      <!-- Logos SOLO UNA VEZ -->
+      <img src="img/provedores/1.jpeg" alt="Proveedor 1">
+      <img src="img/provedores/2.jpeg" alt="Proveedor 2">
+      <img src="img/provedores/3.jpeg" alt="Proveedor 3">
+      <img src="img/provedores/4.jpeg" alt="Proveedor 4">
+      <img src="img/provedores/5.jpeg" alt="Proveedor 5">
+      <img src="img/provedores/6.jpeg" alt="Proveedor 6">
+      <img src="img/provedores/7.jpeg" alt="Proveedor 7">
+      <img src="img/provedores/8.jpeg" alt="Proveedor 8">
+      <img src="img/provedores/9.jpeg" alt="Proveedor 9">
+      <img src="img/provedores/10.jpeg" alt="Proveedor 10">
+      <img src="img/provedores/11.jpeg" alt="Proveedor 11">
+      <img src="img/provedores/12.jpeg" alt="Proveedor 12">
+      <img src="img/provedores/13.jpeg" alt="Proveedor 13">
+      <img src="img/provedores/14.jpeg" alt="Proveedor 14">
+      <img src="img/provedores/15.jpeg" alt="Proveedor 15">
+      <img src="img/provedores/16.jpeg" alt="Proveedor 16">
+      <img src="img/provedores/17.jpeg" alt="Proveedor 17">
+      <img src="img/provedores/18.jpeg" alt="Proveedor 18">
+      <img src="img/provedores/19.jpeg" alt="Proveedor 19">
+      <img src="img/provedores/20.jpeg" alt="Proveedor 20">
+    </div>
   </div>
 </div>
+
+<!-- Estilos -->
 <style>
   .logo-slider {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      width: 100%;
-      background: white;
-      padding: 20px 0;
+    overflow: hidden;
+    background: white;
+    padding: 20px 0;
+    position: relative;
   }
 
   .logo-track {
-      display: flex;
-      gap: 40px;
-      animation: scroll 10s linear infinite;
-      width: calc(200px * 20); /* Ajustado al número de logos */
+    display: flex;
+    animation: scroll 20s linear infinite;
   }
 
   .logo-track img {
-      max-width: 150px;
-      height: auto;
-      object-fit: contain;
+    max-width: 150px;
+    height: auto;
+    margin-right: 40px;
+    flex-shrink: 0;
+    object-fit: contain;
   }
 
   @keyframes scroll {
-      from {
-          transform: translateX(0);
-      }
-      to {
-          transform: translateX(-50%);
-      }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   @media (max-width: 768px) {
-      .logo-track img {
-          max-width: 100px;
-      }
+    .logo-track img {
+      max-width: 100px;
+    }
   }
 </style>
+
+<!-- Script -->
+<script>
+  const track = document.getElementById('logo-track');
+  const logos = Array.from(track.children);
+  const containerWidth = track.parentElement.offsetWidth;
+
+  // Clona logos hasta que se duplique el ancho del track
+  while (track.scrollWidth < containerWidth * 2) {
+    logos.forEach(logo => {
+      track.appendChild(logo.cloneNode(true));
+    });
+  }
+</script>
 
 
 <!-- seccion mapas -->
@@ -701,7 +694,6 @@
     </div>
   </div>
 </section>
-
 <style>
   /* Degradado de fondo para el buzón */
   #buzon {
@@ -724,8 +716,6 @@
     }
   }
 </style>
-
-
 
 <!-- footer -->
 <footer class="bg-white text-dark py-5 p-5">
