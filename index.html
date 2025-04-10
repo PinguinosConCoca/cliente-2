@@ -356,7 +356,7 @@
   .logo-track {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite;
+    animation: scroll var(--scroll-duration, 30s) linear infinite;
   }
 
   .logo-track img {
@@ -383,11 +383,11 @@
     }
   }
 
-  /* Evita el scroll lateral */
   .section-full {
     overflow-x: hidden;
   }
 </style>
+
 
 
 <!-- Script -->
@@ -395,18 +395,25 @@
   document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById('logo-track');
     const logos = Array.from(track.children);
-    const trackWidth = track.scrollWidth;
-    const parentWidth = track.parentElement.offsetWidth;
+    const parent = track.parentElement;
 
-    // Duplica los logos una vez para el loop
-    if (trackWidth < parentWidth * 2) {
-      logos.forEach(logo => {
-        const clone = logo.cloneNode(true);
-        track.appendChild(clone);
-      });
-    }
+    // Clona para scroll infinito
+    logos.forEach(logo => {
+      const clone = logo.cloneNode(true);
+      track.appendChild(clone);
+    });
+
+    // Espera un poco y luego calcula
+    setTimeout(() => {
+      const trackWidth = track.scrollWidth;
+      const speed = 200; // px por segundo
+
+      const duration = trackWidth / speed; // segundos
+      track.style.setProperty('--scroll-duration', `${duration}s`);
+    }, 100); // deja que el DOM se acomode
   });
 </script>
+
 
 
 
