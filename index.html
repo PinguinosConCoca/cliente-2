@@ -355,20 +355,21 @@
 
   .logo-track {
     display: flex;
-    animation: scroll 20s linear infinite;
+    width: max-content;
+    animation: scroll 30s linear infinite;
   }
 
   .logo-track img {
-    max-width: 150px;
+    max-width: 120px;
     height: auto;
-    margin-right: 40px;
+    margin-right: 30px;
     flex-shrink: 0;
     object-fit: contain;
   }
 
   @keyframes scroll {
     0% {
-      transform: translateX(0);
+      transform: translateX(0%);
     }
     100% {
       transform: translateX(-50%);
@@ -377,24 +378,36 @@
 
   @media (max-width: 768px) {
     .logo-track img {
-      max-width: 100px;
+      max-width: 80px;
+      margin-right: 20px;
     }
+  }
+
+  /* Evita el scroll lateral */
+  .section-full {
+    overflow-x: hidden;
   }
 </style>
 
+
 <!-- Script -->
 <script>
-  const track = document.getElementById('logo-track');
-  const logos = Array.from(track.children);
-  const containerWidth = track.parentElement.offsetWidth;
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById('logo-track');
+    const logos = Array.from(track.children);
+    const trackWidth = track.scrollWidth;
+    const parentWidth = track.parentElement.offsetWidth;
 
-  // Clona logos hasta que se duplique el ancho del track
-  while (track.scrollWidth < containerWidth * 2) {
-    logos.forEach(logo => {
-      track.appendChild(logo.cloneNode(true));
-    });
-  }
+    // Duplica los logos una vez para el loop
+    if (trackWidth < parentWidth * 2) {
+      logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        track.appendChild(clone);
+      });
+    }
+  });
 </script>
+
 
 
 <!-- seccion mapas -->
